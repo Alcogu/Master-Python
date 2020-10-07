@@ -6,6 +6,12 @@ cont = 0
 v1 = int(input("Por favor ingrese el primer dato "))
 v2 = int(input("Por favor ingrese el segundo dato "))
 
-for cont in range(v1, (v2+1)):
+if v1 < v2:
 
-    print(cont)
+    for cont in range(v1, (v2+1)):
+
+        print(cont)
+
+else:
+    print("¡¡¡Cuidado!!!")
+    print("El primer valor debe ser menor al segundo")

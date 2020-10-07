@@ -11,7 +11,6 @@ print(f"El resultado es {resultado}")
 # Ejemplo
 
 num = int(input("Ingrese el numero a multiplicar:"))
-cont = 0
 
 for cont in range (1, 11):
     print(f" {num} x {cont} = {cont*num}")

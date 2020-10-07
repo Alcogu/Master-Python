@@ -13,7 +13,7 @@ while cont <=60:
 """
 #FOR
 
-for cont in range(61):
+for cont in range(1, 61):
 
     cuadrado =cont*cont
     print(f"El cuadrado de {cont} es {cuadrado}")
