@@ -2,7 +2,6 @@
 """
 Mostrar todos los numeros entre dos numeros que muestre el usuario
 """
-cont = 0
 v1 = int(input("Por favor ingrese el primer dato "))
 v2 = int(input("Por favor ingrese el segundo dato "))
 
