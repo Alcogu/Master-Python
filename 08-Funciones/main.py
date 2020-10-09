@@ -66,7 +66,7 @@ print(saludame("Alex Correa"))
 """
 
 print("---------Ejemplo 6---------")
-
+"""
 def calculadora(n1, n2, opc = False):
 
     suma = n1 + n2
@@ -91,3 +91,28 @@ def calculadora(n1, n2, opc = False):
     return cadena
 
 print(calculadora(10,2, True))
+"""
+
+print("---------Ejemplo 7---------")
+"""
+def getNombre(nombre):
+    texto = (f"el nombre es: {nombre}")
+    return texto
+
+def getApellido(apellido):
+    texto = (f"el apelido es: {apellido}")
+    return texto
+
+def devuelveAll(nombre, apellido):
+    texto = (getNombre(nombre) + "\n" + getApellido(apellido))
+    return texto
+
+print(devuelveAll("Alexander", "Correa Gutiérrez"))
+"""
+
+print("---------Ejemplo 8---------")
+
+# Funcion landa
+
+año = lambda year: (f"El año es {year}")
+
