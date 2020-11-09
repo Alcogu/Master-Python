@@ -115,4 +115,3 @@ print("---------Ejemplo 8---------")
 # Funcion landa
 
 año = lambda year: (f"El año es {year}")
-
