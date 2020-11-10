@@ -1,5 +1,5 @@
 """
-Diccionario: TIpo de dato que almacena un conjunto de datos.
+Diccionario: Tipo de dato que almacena un conjunto de datos.
 En formato clave > valor
 Es parecido a un array asociativo o un objeto json
 """
