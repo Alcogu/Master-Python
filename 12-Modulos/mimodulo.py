@@ -25,4 +25,4 @@ def calculadora(n1, n2, opc = False):
 
     return cadena
 
-#print(calculadora(10,2, True))
+print(calculadora(10,2, True))
