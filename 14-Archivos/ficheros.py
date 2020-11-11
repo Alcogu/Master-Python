@@ -1,6 +1,8 @@
 from io import open
 import pathlib
 import shutil #acceder a fuciones de copiar y renombrar archivos
+import os
+import os.path
 
 ruta = str(pathlib.Path().absolute()) + "/ficheros.txt"
 archivo = open (ruta, "a+")
@@ -29,7 +31,7 @@ archivo_lectura.close()
 for frase in lista:
 
     lista_frase = frase.split()
-    print(lista_frase)
+#    print(lista_frase)
     #print("- " + frase.upper())
 
 #copiar
@@ -41,8 +43,23 @@ ruta_alternativa = "../07-ejercicios/ficheros_copiado77.txt"
 shutil.copyfile(ruta_original, ruta_alternativa)
 """
 #Mover
-
+"""
 ruta_original = str(pathlib.Path().absolute()) + "/ficheros_copiado.txt"
 ruta_nueva = str(pathlib.Path().absolute()) + "/ficheros_NewCopy.txt"
 
 shutil.move(ruta_original, ruta_nueva)
+"""
+
+#Elimnar
+"""
+ruta_nueva = str(pathlib.Path().absolute()) + "/fichero_copiado.txt"
+os.remove(ruta_nueva)
+"""
+# Comprobar si existe
+
+#print(os.path.abspath("../"))
+
+if os.path.isfile(os.path.abspath("../") + "ficheros.txt"):
+    print("El archivo existe")
+else:
+    print("El archivo no existe")
