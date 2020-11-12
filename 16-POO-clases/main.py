@@ -7,7 +7,7 @@ class Coche:
     #Caracteristicas del objeto
     color = "Verde"
     marca = "Ferrari"
-    Modelo = "Aventador"
+    modelo = "Aventador"
     velocidad = 300
     caballaje = 500
     plazas = 2
@@ -41,6 +41,8 @@ class Coche:
 
 coche = Coche()
 
+print("COCHE 1: ")
+
 coche.setColor("Azul")
 coche.setModelo("Cacas")
 
@@ -53,3 +55,15 @@ coche.acelerar()
 coche.acelerar()
 
 print("Velocidad actual: ", coche.getVelocidad())
+
+print("----------------------------------------")
+#Crear mas objetos
+
+coche2 = Coche()
+
+coche2.setColor("Marron")
+coche2.setModelo("Pichirilo")
+
+
+print("COCHE 2: ")
+print(coche2.marca, coche2.getModelo(), coche.getColor())
