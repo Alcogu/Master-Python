@@ -51,16 +51,25 @@ print(len(numeros))
 
 print("------------  Busqueda en la lista ------------")
 
-busqueda = int(input("ingresa un número "))
+try:
 
-comprobar = isinstance(busqueda, int) #verifica que si sea un entero
+    busqueda = int(input("ingresa un número "))
 
-while not comprobar or busqueda <= 0:
-    busqueda = int(input("ingresa un número"))
-else:
-    print(f"Has introducido el {busqueda}")
+    comprobar = isinstance(busqueda, int) #verifica que si sea un entero
 
-print(f"------------  Busqueda en la lista el número {busqueda} ------------")
+    while not comprobar or busqueda <= 0:
+        busqueda = int(input("ingresa un número"))
+    else:
+        print(f"Has introducido el {busqueda}")
 
-search = numeros.index(busqueda) #Index busca en la lista
-print(f"EL número buscando existe en la lista, es el indice {search}")
+    print(f"------------  Busqueda en la lista el número {busqueda} ------------")
+
+except:
+    print("Ingresa un numero")
+    
+try:
+    search = numeros.index(busqueda) #Index busca en la lista
+    print(f"EL número buscando existe en la lista, es el indice {search}")
+
+except:
+    print("EL número no esta en la lista, lo siento")
