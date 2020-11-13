@@ -20,16 +20,16 @@ class persona:
     def getEdad(self):
         return self.edad
 
-    def setNombre(self,nombre):
+    def setNombre(self, nombre):
         self.nombre = nombre
 
-    def setApellidos(self,apellidos):
+    def setApellidos(self, apellidos):
         self.apellidos = apellidos
 
-    def setEdad(self,edad):
+    def setEdad(self, edad):
         self.edad = edad
 
-    def setAltura(self,altura):
+    def setAltura(self, altura):
         self.altura = altura
 
     def hablar(self):
@@ -43,4 +43,24 @@ class persona:
 
 class Informatico(Persona):
 
-print("HOlaaaa")
+    """
+    lenguajes
+    experiencia
+    """
+
+    def __init__(self):
+        self.lenguajes = "HTML, CSS, JS, PHP"
+        self.experiencia = 5
+
+    def getLenguajes(self):
+        return self.lenguajes
+
+    def aprender(self, lenguajes):
+        self.lenguajes = lenguajes
+        return self.lenguajes
+
+    def programar(self):
+        return "Estoy programando"
+
+    def repararPC(self):
+        return "He reparado el PC"
