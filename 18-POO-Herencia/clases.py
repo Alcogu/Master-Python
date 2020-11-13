@@ -1,6 +1,6 @@
 #Posibilidad de compartir atributos y metodos entre clases
 
-class persona:
+class Persona:
     """
     nombre
     apellidos
@@ -64,3 +64,13 @@ class Informatico(Persona):
 
     def repararPC(self):
         return "He reparado el PC"
+
+class TecnicoRedes(Informatico):
+
+    def __init__(self):
+        super().__ini__()
+        self.auditarRedes = "Experto"
+        self.experienciaRedes = 15
+
+    def auditoria(self):
+        return "Estoy auditando una red"
