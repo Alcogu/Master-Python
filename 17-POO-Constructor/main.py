@@ -9,3 +9,8 @@ print(carro.getInfo())
 print(carro1.getInfo())
 print(carro2.getInfo())
 print(carro3.getInfo())
+
+#Visibilidad
+
+print(carro.soypublico)
+print(carro.getPrivado())
