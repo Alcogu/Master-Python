@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 
-# Create your views here.
+#MVC = Modelo vista controlador -> Acciones(metodos)
+#MVT = modelo vista template-> Acciones(Metodos)
+
+def holaMundo(request):
+    return HttpResponse("Hola Mundo con Django")
