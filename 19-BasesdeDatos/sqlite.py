@@ -15,7 +15,18 @@ cursor.execute("CREATE TABLE IF NOT EXISTS productos("+
 ")")
 
 #Guardar Cambios
-conexion.commit()
+conexion.commit()#Se guardan cambios
+
+#insertar datos
+cursor.execute("INSERT INTO productos VALUES (null, 'producto uno', 'descripcion del producto', '550')")
+conexion.commit()#Se guardan cambios
+
+#Listar Datos
+cursor.execute("SELECT * FROM productos;")
+productos = cursor.fetchall()
+
+#print(cursor)#Ver obejto que se tiene dentro de cursor
+print(productos)#Muestra listas con objetos asignados
 
 #Cerrar conexion
 conexion.close()
