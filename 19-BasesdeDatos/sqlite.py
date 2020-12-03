@@ -1,7 +1,7 @@
 import sqlite3 #importar modulo
 
 #Conexion
-conexion = sqlite3.connect("pruebas.db")
+conexion = sqlite3.connect("./19-BasesdeDatos/pruebas.db")
 
 #Crear cursor
 cursor = conexion.cursor()
