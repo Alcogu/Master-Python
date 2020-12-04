@@ -1,17 +1,10 @@
-import mysql.connector
 import datetime
+import hashlib
+import Usuarios.conexion as conexion
 
-database = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "",
-    database = "master_python",
-    port = 3306
-)
-
-#print(database) Validar conexion a la DB
-
-cursor = database.cursor(buffered=True) #objeto que nos permitira hacer las consultas
+connect = conexion.conectar()
+database = connect[0]#0 es donde se tiene la bd
+cursor = connect[1]#1 es donde se tiene el indice
 
 class Usuario:
 
@@ -24,8 +17,12 @@ class Usuario:
     def registrar(self):
 
         fecha = datetime.datetime.now()
+        #Cifrar contraseña
+        cifrado = hashlib.sha256()
+        cifrado.update(self.password.encode('utf8'))#pasan un dato apra que lo cifre
+        
         sql = "INSERT INTO usuarios VALUES(null, %s, %s, %s, %s, %s)"
-        usuario = (self.nombre, self.apellidos, self.email, self.password, fecha)
+        usuario = (self.nombre, self.apellidos, self.email, cifrado.hexdigest(), fecha)
 
         try:
 
@@ -39,4 +36,19 @@ class Usuario:
         return result
 
     def identificar(self):
-        return self.nombre
+
+        #comprobar que exista el usuario
+        sql = "SELECT * FROM usuarios WHERE email = %s AND password = %s"
+
+        #Cifrar contraseña
+        cifrado = hashlib.sha256()
+        #pasan un dato apra que lo cifre
+        cifrado.update(self.password.encode('utf8'))
+
+        #datos para la consulta
+        usuario = (self.email, cifrado.hexdigest())
+
+        cursor.execute(sql, usuario)
+        result = cursor.fetchone()
+
+        return result

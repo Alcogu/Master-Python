@@ -22,5 +22,45 @@ class Acciones:
     def login(self):
         print("\nIdentificate")
 
-        email = input("Ingresa tu email:")
-        password = input("Ingresa tu contraseña:")
+        try:
+            email = input("Ingresa tu email:")
+            password = input("Ingresa tu contraseña:")
+
+            usuario = modelo.Usuario("", "", email,password)
+            login = usuario.identificar()
+
+            if email == login[3]:
+                print(f"\nBienvenid@ {login[1]}, te has registrado en el sistema el {login[5]} ")
+                self.nextAction(login)
+
+        except Exception as e:
+            print(type(e))
+            print(type(e).__name__)
+            print(f"El Login es incorrecto")
+
+    def nextAction(self, usuario):
+        print("""
+        Acciones disponibles:
+        - Crear Nota (crear)
+        - Mostrar tus notas (mostrar)
+        - Eliminar notas (eliminar)
+        - Salir
+        """)
+
+        accion = input("¿qué quieres hacer? ")
+
+        if accion == "crear":
+            print("Vamos a crear una nueva nota")
+            self.nextAction(usuario)
+
+        elif accion == "mostrar":
+            print("Vamos a mostrar una nota")
+            self.nextAction(usuario)
+
+        elif accion == "eliminar":
+            print("Vamos a eliminar una nota")
+            self.nextAction(usuario)
+
+        elif accion == "Salir":
+            print(f"¡¡¡Hasta la vista viejo!!!")
+            exit()
