@@ -1,4 +1,5 @@
 import Usuarios.usuario as modelo
+import Notas.acciones
 
 class Acciones:
 
@@ -7,8 +8,8 @@ class Acciones:
 
         nombre = input("Ingresa tu nombre: ")
         apellidos = input("Ingresa tus apellidos: ")
-        email = input("Registra tu email:")
-        password = input("Registra tu contraseña:")
+        email = input("Registra tu email: ")
+        password = input("Registra tu contraseña: ")
 
         usuario = modelo.Usuario(nombre, apellidos, email, password)
         registro = usuario.registrar()
@@ -23,8 +24,8 @@ class Acciones:
         print("\nIdentificate")
 
         try:
-            email = input("Ingresa tu email:")
-            password = input("Ingresa tu contraseña:")
+            email = input("Ingresa tu email: ")
+            password = input("Ingresa tu contraseña: ")
 
             usuario = modelo.Usuario("", "", email,password)
             login = usuario.identificar()
@@ -48,9 +49,11 @@ class Acciones:
         """)
 
         accion = input("¿qué quieres hacer? ")
-
+        #se llama modulo de acciones y a la clase Acciones para crear el objeto
+        hazEl = Notas.acciones.Acciones()
+        
         if accion == "crear":
-            print("Vamos a crear una nueva nota")
+            hazEl.crear(usuario)
             self.nextAction(usuario)
 
         elif accion == "mostrar":
