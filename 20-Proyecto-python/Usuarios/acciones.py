@@ -57,11 +57,11 @@ class Acciones:
             self.nextAction(usuario)
 
         elif accion == "mostrar":
-            print("Vamos a mostrar una nota")
+            hazEl.mostrar(usuario)
             self.nextAction(usuario)
 
         elif accion == "eliminar":
-            print("Vamos a eliminar una nota")
+            hazEl.borrar(usuario)
             self.nextAction(usuario)
 
         elif accion == "Salir":
