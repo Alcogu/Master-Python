@@ -10,23 +10,32 @@ from tkinter import messagebox
 
 ventana = Tk()
 ventana.title("Ejercicio completo con Tkinter")
-ventana.geometry("400x400")
+ventana.geometry("300x250")
 ventana.config(bd=25)
 
+def cFloat(numero):
+    try:
+        result = float(numero)
+    except:
+        result=0
+        messagebox.showerror("Error", "Ingresa un número")
+
+    return result
+
 def sumar():
-    resultado.set(float(numero1.get()) + float(numero2.get()))
+    resultado.set(cFloat(numero1.get()) + cFloat(numero2.get()))
     mostrarResultado()
 
 def restar():
-    resultado.set(float(numero1.get()) - float(numero2.get()))
+    resultado.set(cFloat(numero1.get()) - cFloat(numero2.get()))
     mostrarResultado()
 
 def multiplicar():
-    resultado.set(float(numero1.get()) * float(numero2.get()))
+    resultado.set(cFloat(numero1.get()) * cFloat(numero2.get()))
     mostrarResultado()
 
 def dividir():
-    resultado.set(float(numero1.get()) / float(numero2.get()))
+    resultado.set(cFloat(numero1.get()) / cFloat(numero2.get()))
     mostrarResultado()
 
 def mostrarResultado():
