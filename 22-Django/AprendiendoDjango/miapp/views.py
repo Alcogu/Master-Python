@@ -4,7 +4,7 @@ from django.shortcuts import render, HttpResponse
 #MVT = modelo vista template->      Acciones(Metodos)
 
 layout = """
-<h1>Sitio Web con Djanco | Alex Correa Gutiérrez</h1>
+<h1>Sitio Web con Django | Alex Correa Gutiérrez</h1>
 <hr/>
 <ul>
     <li>
@@ -17,6 +17,7 @@ layout = """
         <a href="/pagina-pruebas">Página de pruebas</a>
     </li>
 </ul>
+<hr/>
 """
 
 def index(request):
@@ -50,3 +51,6 @@ def pagina(request):
     <h1>Página Web</h1>
     <h3>Made by Alexander Correa Gutiérrez</h3>
     """)
+
+def contacto(request, nombre, apellidos):
+    return HttpResponse(layout+f"<h2>Página de contacto {nombre} {apellidos}</h2>")

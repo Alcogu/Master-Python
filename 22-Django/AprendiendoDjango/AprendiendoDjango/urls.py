@@ -25,5 +25,6 @@ urlpatterns = [
     path('',miapp.views.index, name="Index"),
     path('inicio/',miapp.views.index, name="Inicio"),
     path('pagina-pruebas',miapp.views.pagina, name="Pagina"),
-    path('hola-mundo/', miapp.views.hola_mundo, name="hola_mundo")
+    path('hola-mundo/', miapp.views.hola_mundo, name="Hola Mundo"),
+    path('contacto/<str:nombre>/<str:apellidos>', miapp.views.contacto, name="Contacto")
 ]
