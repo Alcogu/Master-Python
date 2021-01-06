@@ -52,5 +52,11 @@ def pagina(request):
     <h3>Made by Alexander Correa Gutiérrez</h3>
     """)
 
-def contacto(request, nombre, apellidos):
-    return HttpResponse(layout+f"<h2>Página de contacto {nombre} {apellidos}</h2>")
+def contacto(request, nombre="", apellidos=""):
+    html = ""
+
+    if nombre and apellidos:
+        html += "<p>El nombre completo es</p>"
+        html += f"<h3>{nombre} {apellidos}</h3>"
+
+    return HttpResponse(layout+f"<h2>Contacto</h2>")
