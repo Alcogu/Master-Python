@@ -1,16 +1,3 @@
-"""
-Crear un programa con:
--Ventana
--Tamaño fijo
--No redimensionable
--Un menu
--Diferentes patanllas
--Formulario de añadit productos
--Guardar datos temporales
--Mostrar datos listados en la pantalla de home para
--Opcion de salir
-"""
-
 from tkinter import *
 from tkinter import ttk
 
