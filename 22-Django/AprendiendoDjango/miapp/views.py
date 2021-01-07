@@ -1,10 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 #MVC = Modelo vista controlador ->  Acciones(metodos)
 #MVT = modelo vista template->      Acciones(Metodos)
 
 layout = """
-<h1>Sitio Web con Django | Alex Correa Gutiérrez</h1>
+<h1>Sitio Web con Django | Alexander Correa Gutiérrez</h1>
 <hr/>
 <ul>
     <li>
@@ -15,6 +15,9 @@ layout = """
     </li>
     <li>
         <a href="/pagina-pruebas">Página de pruebas</a>
+    </li>
+    <li>
+        <a href="/contacto">Contactos</a>
     </li>
 </ul>
 <hr/>
@@ -46,7 +49,12 @@ def hola_mundo(request):
     <h3>Alexander Correa Gutiérrez</h3>
     """)
 
-def pagina(request):
+def pagina(request, redirigir = 0):
+
+    if redirigir ==1:
+        return redirect('/contacto/Alexander/Correa')
+        #return redirect('/contacto', nombre="Alexander", apellidos="Correa Gutiérrez")
+
     return HttpResponse(layout+"""
     <h1>Página Web</h1>
     <h3>Made by Alexander Correa Gutiérrez</h3>
@@ -59,4 +67,4 @@ def contacto(request, nombre="", apellidos=""):
         html += "<p>El nombre completo es</p>"
         html += f"<h3>{nombre} {apellidos}</h3>"
 
-    return HttpResponse(layout+f"<h2>Contacto</h2>")
+    return HttpResponse(layout+f"<h2>Contacto</h2>"+html)
