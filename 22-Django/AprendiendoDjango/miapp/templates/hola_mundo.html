@@ -1,2 +1,10 @@
-<h1>Un Hola Mundo usando Django</h1>
-<h3>Alexander Correa Gutiérrez</h3>
+{% extends 'layout.html' %}
+
+{% block title %} Hola Mundo en Django {% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    
+    <h1>Un Hola Mundo usando Django</h1>
+    <h3>Alexander Correa Gutiérrez</h3>
+{% endblock %}
