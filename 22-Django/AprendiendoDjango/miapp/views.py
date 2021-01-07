@@ -4,23 +4,7 @@ from django.shortcuts import render, HttpResponse, redirect
 #MVT = modelo vista template->      Acciones(Metodos)
 
 layout = """
-<h1>Sitio Web con Django | Alexander Correa Gutiérrez</h1>
-<hr/>
-<ul>
-    <li>
-        <a href="/inicio">Inicio</a>
-    </li>
-    <li>
-        <a href="/hola-mundo">Hola Mundo</a>
-    </li>
-    <li>
-        <a href="/pagina-pruebas">Página de pruebas</a>
-    </li>
-    <li>
-        <a href="/contacto">Contactos</a>
-    </li>
-</ul>
-<hr/>
+
 """
 
 def index(request):
@@ -40,14 +24,11 @@ def index(request):
 
     html += "</ul>"
 
-    return HttpResponse(layout+html)
+    return render(request, 'index.html')
 
 
 def hola_mundo(request):
-    return HttpResponse(layout+"""
-    <h1>Un Hola Mundo usando Django</h1>
-    <h3>Alexander Correa Gutiérrez</h3>
-    """)
+    return render(request, 'hola_mundo.html')
 
 def pagina(request, redirigir = 0):
 
@@ -55,10 +36,7 @@ def pagina(request, redirigir = 0):
         return redirect('/contacto/Alexander/Correa')
         #return redirect('/contacto', nombre="Alexander", apellidos="Correa Gutiérrez")
 
-    return HttpResponse(layout+"""
-    <h1>Página Web</h1>
-    <h3>Made by Alexander Correa Gutiérrez</h3>
-    """)
+    return render(request, 'pagina.html')
 
 def contacto(request, nombre="", apellidos=""):
     html = ""
