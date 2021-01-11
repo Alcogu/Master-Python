@@ -7,8 +7,9 @@
     <title>
         {% block title %}
         <!--Titulo de cada página-->
-        {% endblock %}
         Sitio Web con Django
+        {% endblock %}
+        
     </title>
 
     {% load static %}
@@ -42,13 +43,22 @@
             </li>
         </ul>
     </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
 
     <div id="content">
-        <h2 class="title"> Titulo de prueba </h2>
-        {% block content %}
-            <strong>¡¡¡Contenido del bloque Original!!!</strong>
-            <!--Codigo que viene de template-->
-        {% endblock %}
+
+        <div class="box">
+            <h2 class="title"> Titulo de prueba </h2>
+            {% block content %}
+                <!--Codigo que viene de template-->
+                <strong>¡¡¡Contenido del bloque Original!!!</strong>
+            {% endblock %}
+        </div>
+        
     </div>
 
     <footer>
