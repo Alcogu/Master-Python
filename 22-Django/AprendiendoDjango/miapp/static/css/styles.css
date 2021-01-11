@@ -1,0 +1,45 @@
+/*Estilos Generales*/
+
+*{/*Selecciona todos los elementos de la página web*/
+    margin: 0px;/*Sin margenes*/
+    padding: 0px;/*Sin margen interno*/
+    font-family: sans-serif, Arial, Helvetica;/*fuente*/
+    text-decoration: none;/*Sin estilos*/
+}
+
+body{
+    background-color: rgb(170, 165, 164);
+}
+
+/*Estilos Cabecera*/
+
+header{
+    width: 1212px;
+    height: 140px;
+    background-color: rgb(71, 75, 71);
+    margin: 0 auto;
+}
+
+#logotipo{
+    width: 35%;
+    height: 130px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+#logotipo img{
+    display: block;
+    width: 60px;
+    float: left;
+    margin-top:20px;
+}
+
+#logotipo h1{
+    display: block;
+    float: left;
+    margin-top: 35px;
+    margin-left: 20px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    color: rgb(36, 160, 113);
+}
