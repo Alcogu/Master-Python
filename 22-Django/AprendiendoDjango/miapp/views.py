@@ -22,11 +22,14 @@ def index(request):
             html += f"<li>{str(year)}</li>"
         year += 1
 
+    nombre='Alexander Correa Gutiérrez'
+
     html += "</ul>"
 
     return render(request, 'index.html', {
         'title': 'Inicio',
-        'mi_variable': 'Soy un dato que está en la vista'
+        'mi_variable': 'Soy un dato que está en la vista',
+        'nombre': nombre
     })
 
 
