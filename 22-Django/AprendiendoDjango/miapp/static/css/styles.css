@@ -7,9 +7,14 @@
     text-decoration: none;/*Sin estilos*/
 }
 
-p{
+.box p, .box h2, .box h3, .box ul{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.box ul, .box ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 body{

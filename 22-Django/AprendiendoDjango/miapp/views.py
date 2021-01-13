@@ -2,18 +2,17 @@ from django.shortcuts import render, HttpResponse, redirect
 
 #MVC = Modelo vista controlador ->  Acciones(metodos)
 #MVT = modelo vista template->      Acciones(Metodos)
-
 layout = """
 
 """
 
 def index(request):
-
-    html = """
+    """
+    html = ""
         <h1>Inicio</h1>
         <p>Años hasta el 2050:</p>
         <ul>
-    """
+    ""
 
     year = 2020
     while year <= 2050:
@@ -22,14 +21,21 @@ def index(request):
             html += f"<li>{str(year)}</li>"
         year += 1
 
-    nombre='Alexander Correa Gutiérrez'
-
     html += "</ul>"
+    """
+    year =2021
+    hasta = range(year, 2051)
+
+
+    nombre='Alexander Correa Gutiérrez'
+    lenguajes = ['JavaScript', 'Python', 'PHP', 'C']
 
     return render(request, 'index.html', {
         'title': 'Inicio',
         'mi_variable': 'Soy un dato que está en la vista',
-        'nombre': nombre
+        'nombre': nombre,
+        'lenguajes': lenguajes,
+        'years': hasta
     })
 
 
