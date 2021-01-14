@@ -22,12 +22,12 @@ from miapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name="Index"),
-    path('inicio/', views.index, name="Inicio"),
-    path('hola-mundo/', views.hola_mundo, name="Hola Mundo"),
-    path('pagina-pruebas/', views.pagina, name="Pagina"),
-    path('pagina-pruebas/<int:redirigir>',views.pagina, name="Pagina"),
-    path('contacto/', views.contacto, name="Contacto"),
-    path('contacto/<str:nombre/', views.contacto, name="Contacto"),
-    path('contacto/<str:nombre>/<str:apellidos>', views.contacto, name="Contacto")
+    path('', views.index, name="index"),
+    path('inicio/', views.index, name="inicio"),
+    path('hola-mundo/', views.hola_mundo, name="hola_mundo"),
+    path('pagina-pruebas/', views.pagina, name="pagina"),
+    path('pagina-pruebas/<int:redirigir>',views.pagina, name="pagina"),
+    path('contacto/', views.contacto, name="contacto"),
+    path('contacto/<str:nombre/', views.contacto, name="contacto"),
+    path('contacto/<str:nombre>/<str:apellidos>', views.contacto, name="contacto")
 ]
