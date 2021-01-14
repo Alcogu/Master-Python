@@ -1,3 +1,3 @@
 from django.db import models
 
-# Create your models here.
+# pequeñas clases que generan objetos para trabajar en el proyecto
