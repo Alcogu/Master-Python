@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from miapp.models import Article
 
 #MVC = Modelo vista controlador ->  Acciones(metodos)
 #MVT = modelo vista template->      Acciones(Metodos)
@@ -58,3 +59,14 @@ def contacto(request, nombre="", apellidos=""):
         html += f"<h3>{nombre} {apellidos}</h3>"
 
     return HttpResponse(layout+f"<h2>Contacto</h2>"+html)
+
+def crear_articulo(request, title, content, public):
+    articulo = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+
+    articulo.save()
+
+    return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
