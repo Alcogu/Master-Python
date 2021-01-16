@@ -96,7 +96,17 @@ def editar_articulo(request, id):
 def articulos(request):
 
     articulos = Article.objects.all()
+    #articulos = Article.objects.order_by('id')
+    #articulos = Article.objects.order_by('-id')#Muestra lista invertida
+    #articulos = Article.objects.order_by('-id')[:3]#Muestra primeros 3
+    #articulos = Article.objects.order_by('-id')[2:5]#Muestra del 2 al 5
 
     return render(request, 'articulos.html',{
         'articulos': articulos #pasa objetos de la BD al template
     })
+
+def borrar_articulo(request, id):
+    articulo = Article.objects.get(pk=id)
+    articulo.delete()
+
+    return redirect('articulos')
