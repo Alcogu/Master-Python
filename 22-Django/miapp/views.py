@@ -70,3 +70,33 @@ def crear_articulo(request, title, content, public):
     articulo.save()
 
     return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
+
+def articulo(request):
+
+    try:
+        articulo = Article.objects.get(id=6, public=True)
+        response = f"Articulo: <br/> {articulo.id}. {articulo.title}"
+    except:
+        response = "<h1>Articulo no encontrado</h1>"
+
+    return HttpResponse(response)
+
+def editar_articulo(request, id):
+
+    articulo = Article.objects.get(pk=id)
+
+    articulo.title = "Batman"
+    articulo.content = "Pelicula del 2017"
+    articulo.public = True
+
+    articulo.save()
+
+    return HttpResponse(f"Articulo editado: <strong>{articulo.title} - {articulo.content}")
+
+def articulos(request):
+
+    articulos = Article.objects.all()
+
+    return render(request, 'articulos.html',{
+        'articulos': articulos #pasa objetos de la BD al template
+    })
