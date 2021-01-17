@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Article
+from django.db.models import Q
 
 #MVC = Modelo vista controlador ->  Acciones(metodos)
 #MVT = modelo vista template->      Acciones(Metodos)
@@ -71,6 +72,21 @@ def crear_articulo(request, title, content, public):
 
     return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
 
+def save_articulo(request):
+    articulo = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+
+    articulo.save()
+
+    return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
+
+def create_article(request):
+
+    return render(request, 'create_article.html')
+
 def articulo(request):
 
     try:
@@ -100,6 +116,16 @@ def articulos(request):
     #articulos = Article.objects.order_by('-id')#Muestra lista invertida
     #articulos = Article.objects.order_by('-id')[:3]#Muestra primeros 3
     #articulos = Article.objects.order_by('-id')[2:5]#Muestra del 2 al 5
+    #articulos = Article.objects.filter(title ="Batman")
+    #articulos = Article.objects.filter(title__iexact ="articulo")
+    #articulos = Article.objects.filter(title__contains ="articulo")
+    #articulos = Article.objects.filter(title="Articulo").exclude(public=True)
+    #articulos =Article.objects.raw("SELECT * FROM miapp_article WHERE title= 'Articulo2' AND public=1")
+    """
+    articulos = Article.objects.filter(
+        Q(title__contains="2") | Q(title__contains="3")
+    )
+    """
 
     return render(request, 'articulos.html',{
         'articulos': articulos #pasa objetos de la BD al template
