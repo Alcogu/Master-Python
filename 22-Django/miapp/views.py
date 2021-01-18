@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Article
 from django.db.models import Q
+from miapp.forms import FormArticle
 
 #MVC = Modelo vista controlador ->  Acciones(metodos)
 #MVT = modelo vista template->      Acciones(Metodos)
@@ -72,20 +73,41 @@ def crear_articulo(request, title, content, public):
 
     return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
 
-def save_articulo(request):
-    articulo = Article(
-        title = title,
-        content = content,
-        public = public
+def save_article(request):
+
+    if request.method == 'POST':
+
+        title = request.POST["title"]
+
+        if len(title)<=5:
+            return HttpResponse("El titulo es muy pequeño")
+
+        content = request.POST["content"]
+        public = request.POST["public"]
+
+        articulo = Article(
+            title = title,
+            content = content,
+            public = public
     )
+        articulo.save()
 
-    articulo.save()
-
-    return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
+        return HttpResponse(f"Articulo Creado: {articulo.title} - {articulo.content} ")
+    else:
+        return HttpResponse("<h2> No se ha podido crear el articulo</h2>")
+            
 
 def create_article(request):
 
     return render(request, 'create_article.html')
+
+def create_full_article(request):
+
+    formulario = FormArticle()
+
+    return render(request, 'create_full_article.html',{
+        'form': formulario
+    })
 
 def articulo(request):
 
@@ -111,7 +133,8 @@ def editar_articulo(request, id):
 
 def articulos(request):
 
-    articulos = Article.objects.all()
+    #articulos = Article.objects.all()
+    articulos = Article.objects.all().order_by('-id')
     #articulos = Article.objects.order_by('id')
     #articulos = Article.objects.order_by('-id')#Muestra lista invertida
     #articulos = Article.objects.order_by('-id')[:3]#Muestra primeros 3
