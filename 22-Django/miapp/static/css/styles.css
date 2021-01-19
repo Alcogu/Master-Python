@@ -171,6 +171,18 @@ nav ul li a:hover{
     transition: 300ms all;
 }
 
+.rojo{
+    color: red;
+}
+
+.message{
+    padding: 20px;
+    background:rgb(26, 100, 72);
+    color: white;
+    text-align:center;
+    margin-bottom: 10px;
+}
+
 .box form input[type="submit"]:hover,
 .box form input[type="button"]:hover,
 .box form button:hover{
