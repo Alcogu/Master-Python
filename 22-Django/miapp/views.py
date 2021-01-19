@@ -160,7 +160,7 @@ def editar_articulo(request, id):
 def articulos(request):
 
     #articulos = Article.objects.all()
-    articulos = Article.objects.all().order_by('-id')
+    articulos = Article.objects.filter(public=True).order_by('-id')
     #articulos = Article.objects.order_by('id')
     #articulos = Article.objects.order_by('-id')#Muestra lista invertida
     #articulos = Article.objects.order_by('-id')[:3]#Muestra primeros 3

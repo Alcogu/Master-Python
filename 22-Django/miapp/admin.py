@@ -6,3 +6,9 @@ class ArticleAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category)
+
+#Configurar titulo del panel
+
+admin.site.site_header = "Panel de Control Django"
+admin.site.site_title = "Panel de Control Django"
+admin.site.index_title = "Panel de gestión"

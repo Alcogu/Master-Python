@@ -17,6 +17,11 @@
     margin-bottom: 20px;
 }
 
+.clearfix{
+    clear: both;
+    float: none;
+}
+
 body{
     background-color: rgb(104, 107, 104);
 }
@@ -196,6 +201,56 @@ nav ul li a:hover{
     font-size: 30px;
     margin-bottom: 10px;
     margin-top: 5px;
+}
+
+.article.item{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    clear: both;
+}
+
+.article-item .image{
+    width: 200px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+}
+
+.article-item .image img{
+    height: 200px;
+}
+
+.article-item .data{
+    float:left;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.article-item h2{
+    display: block;
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.article-item span.date{
+    display: block;
+    font-size: 15px;
+    color: grey;
+    margin-bottom: 10px;
+}
+
+.btn{
+    padding: 10px;
+    background:rgb(168, 27, 27);
+    color:white;
+    border: 1px solid black;
+    display:block;
+    margin-top:20px;
+    width: 60px;
+    text-align: center;
 }
 
 footer{
