@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'pages.context_processors.get_pages',
+                'blog.processor.get_categories',
             ],
         },
     },
@@ -124,8 +126,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#Ckeditor
+#Media
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#Ckeditor
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
