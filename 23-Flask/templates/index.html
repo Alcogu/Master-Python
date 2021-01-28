@@ -8,4 +8,36 @@
 
     <h1>Página de Inicio</h1>
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message alert-success">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if edad <= 18 %}
+        <h3>Eres mayor de edad</h3>
+        <p>Tu edad es: {{edad}}</p>
+    {% else %}
+        <h3>Eres menor de edad</h3>
+    {% endif %}
+
+    <h2>Listado de personas</h2>
+    <ul>
+        {% for persona in personas %}
+            <li>{{loop.index}}-{{persona}}</li>
+        {% endfor %}
+    </ul>
+    
+    
+
+    {#
+        {{dato1}}
+        {{dato2}}
+        {{lista}}
+    #}
+
 {% endblock %}
