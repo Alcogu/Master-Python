@@ -3,27 +3,27 @@ numeros = [1, 2, 5, 8, 3, 4]
 
 #Ordenar una lista
 #print(numeros)
-numeros.sort()
+#numeros.sort()
 #print(numeros)
 
 #Agregar Elementos a una lista
 
-cantantes.append('Bon Jovi')
-cantantes.insert(1, 'Sting')
+#cantantes.append('Bon Jovi')
+#cantantes.insert(1, 'Sting')
 
 #print(cantantes)
 
 #Eliminar Elementos
 
-cantantes.pop(0)
-cantantes.remove('Bon Jovi')
+#cantantes.pop(0)
+#cantantes.remove('Bon Jovi')
 #print(cantantes)
 
 #dar la vuelta
 
 #print(numeros)
 numeros.reverse()
-#print(numeros)
+print(numeros)
 
 #Buscar dentro de una lista
 
@@ -44,6 +44,6 @@ numeros.reverse()
 
 #Unir Listas
 
-cantantes.extend(numeros)
+#cantantes.extend(numeros)
 
 print(cantantes)
