@@ -1,7 +1,3 @@
-"""
-Tkinder es un modulo para crear interfaces grafcas
-"""
-
 from tkinter import *
 import os.path
 
