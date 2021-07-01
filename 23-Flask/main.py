@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request,flash
 from datetime import datetime
-from flask_mysqldb import MySQL
+#from flask_mysqldb import MySQL
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -8,12 +9,14 @@ app.secret_key = 'clave_secreta_flask'
 
 #Conexion DB
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD']= ''
-app.config['MYSQL_DB'] = 'proyectoflask'
+app.config['SQLAlchemy_HOST'] = 'localhost'
+app.config['SQLAlchemy_USER'] = 'postgres'
+app.config['SQLAlchemy_PASSWORD']= 'contraseña'
+app.config['SQLAlchemy_DB'] = 'proyectoflask'
 
-mysql = MySQL(app)
+
+#mysql = MySQL(app)
+db = SQLAlchemy(app)
 
 #Context procesors
 
@@ -71,7 +74,7 @@ def crear_coche():
         precio = request.form['precio']
         ciudad = request.form['ciudad']
 
-        cursor = mysql.connection.cursor()
+        cursor = db.connection.cursor()
         cursor.execute("INSERT INTO coches VALUES(NULL, %s, %s, %s, %s)", (marca, modelo, precio, ciudad))
         cursor.connection.commit()
 
@@ -83,7 +86,7 @@ def crear_coche():
 
 @app.route('/coches/')
 def coches():
-    cursor = mysql.connection.cursor()
+    cursor = db.connection.cursor()
     cursor.execute("SELECT * FROM coches")
     coches = cursor.fetchall()
     cursor.close()
@@ -92,7 +95,7 @@ def coches():
 
 @app.route('/coche/<coche_id>/')
 def coche(coche_id):
-    cursor = mysql.connection.cursor()
+    cursor = db.connection.cursor()
     cursor.execute("SELECT * FROM coches WHERE id = %s", (coche_id))
     coches = cursor.fetchall()
     cursor.close()
@@ -101,9 +104,9 @@ def coche(coche_id):
 
 @app.route('/borrar-coche/<coche_id>/')
 def borrar_coche(coche_id):
-    cursor = mysql.connection.cursor()
+    cursor = db.connection.cursor()
     cursor.execute(f"DELETE FROM coches WHERE id = {coche_id}")
-    mysql.connection.commit()
+    db.connection.commit()
 
     flash('El coche ha sido eliminado')
 
@@ -111,7 +114,7 @@ def borrar_coche(coche_id):
 
 @app.route('/editar-coche/<coche_id>/', methods=['GET', 'POST'])
 def editar_coche(coche_id):
-    cursor = mysql.connection.cursor()
+    cursor = db.connection.cursor()
     cursor.execute("SELECT * FROM coches WHERE id = %s", (coche_id))
     coches = cursor.fetchall()
     cursor.close()
