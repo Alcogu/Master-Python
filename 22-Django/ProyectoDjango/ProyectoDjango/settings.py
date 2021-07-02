@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
+    #Coge configuracion extendida
     'pages.apps.PagesConfig',
     'ckeditor',
     'blog.apps.BlogConfig',
